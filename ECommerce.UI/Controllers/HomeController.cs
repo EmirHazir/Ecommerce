@@ -51,6 +51,10 @@ namespace ECommerce.UI.Controllers
 
             return View(urunler.ToList());
         }
+        public ActionResult Details(int id)
+        {
+            return View(_context.Products.Where(i => i.Id == id).FirstOrDefault());
+        }
 
         public PartialViewResult GetCategories()
         {

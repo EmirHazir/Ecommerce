@@ -1,0 +1,69 @@
+﻿@using ECommerce.UI.Entity
+@model Product
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="col-md-9">
+
+    <p class="lead">
+        Built purse maids cease her ham new seven among and. Pulled coming wooded tended it answer remain me be. So landlord by we unlocked sensible it. Fat cannot use denied excuse son law. Wisdom happen suffer common the appear ham beauty
+        her had. Or belonging zealously existence as by resources.
+    </p>
+    <div class="row" id="productMain">
+        <div class="col-sm-6">
+            <div id="mainImage">
+                <img src="@Model.Image" alt="" class="img-responsive">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="box">
+
+                <form>
+                    <p class="price">@Model.Price</p>
+
+                    <p class="text-center">
+                        <button type="submit" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+                        <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to wishlist">
+                            <i class="fa fa-heart-o"></i>
+                        </button>
+                    </p>
+
+                </form>
+            </div>
+
+            <div class="row" id="thumbs">
+                <div class="col-xs-4">
+                    <a href="@Model.Image" class="thumb">
+                        <img src="@Model.Image" alt="" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-xs-4">
+                    <a href="@Model.Image" class="thumb active">
+                        <img src="@Model.Image" alt="" class="img-responsive">
+                    </a>
+                </div>
+                <div class="col-xs-4">
+                    <a href="@Model.Image" class="thumb">
+                        <img src="@Model.Image" alt="" class="img-responsive">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="box" id="details">
+        <p>
+        </p><h4>@Model.Name</h4>
+        <p>@Model.Description</p>
+        <h4>Material &amp; care</h4>
+        <blockquote>
+            <p>
+                <em>@Model.Name - @Model.Description</em>
+            </p>
+        </blockquote>
+    </div>
+</div>
+

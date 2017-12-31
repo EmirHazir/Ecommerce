@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ECommerce.UI.Models.UserOrderModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="col-md-9 clearfix" id="customer-order">
+
+    <p class="lead">Order #1735 was placed on <strong>22/06/2013</strong> and is currently <strong>Being prepared</strong>.</p>
+    <p class="lead text-muted">If you have any questions, please feel free to <a href="#">contact us</a>, our customer service center is working for you 24/7.</p>
+
+    <div class="box">
+        @foreach (var item in Model)
+        {
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Order Number</th>
+                            <th>Order Date</th>
+                            <th>Order State</th>
+                            <th>Total</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="@item.Id">
+                                    @item.OrderNumber
+                                </a>
+                            </td>
+                            <td>
+                                @item.OrderDate.ToShortDateString()
+                            </td>
+                            <td>@item.OrderState</td>
+                            <td>
+                                <i class="fa fa-try" aria-hidden="true"></i>
+                                @item.Total
+                            </td>
+                            <td>
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-sm btn-warning" })
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <th colspan="5" class="text-right">Order State</th>
+                            <th>@item.OrderState</th>
+                        </tr>
+                        <tr>
+                            <th colspan="5" class="text-right">Total</th>
+                            <th>@item.Total</th>
+                        </tr>
+
+                    </tfoot>
+
+                </table>
+
+            </div>
+        }
+    </div>
+</div>
