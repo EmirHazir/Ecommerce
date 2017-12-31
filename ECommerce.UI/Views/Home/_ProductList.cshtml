@@ -1,0 +1,29 @@
+﻿@using ECommerce.UI.Models
+@model IEnumerable<ProductModel>
+
+
+@foreach (var item in Model)
+{
+        <div class="col-md-4 col-sm-6">
+            <div class="product">
+                <div class="image">
+                    <a href="#">
+                        <img src="~/@item.Image" alt="@item.Name" class="img-responsive image1">
+                    </a>
+                </div>
+                <!-- /.image -->
+                <div class="text">
+                    <h3><a href="/Home/Details/@item.Id">@item.Name</a></h3>
+                    <p class="price">@item.Price</p>
+                    <p class="buttons">
+                        <a href="/Home/Details/@item.Id" class="btn btn-default">View detail</a>
+                        <a href="#" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                    </p>
+                </div>
+                <!-- /.text -->
+            </div>
+            <!-- /.product -->
+        </div>
+
+}
+

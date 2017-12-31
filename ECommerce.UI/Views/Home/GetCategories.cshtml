@@ -1,0 +1,55 @@
+﻿@using ECommerce.UI.Entity
+@model IEnumerable<Category>
+@{
+    var selectedCategory = Url.RequestContext.RouteData.Values["id"];
+}
+
+<ul class="nav nav-pills nav-stacked category-menu">
+    <li>
+        <a href="/Home/List">
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            Tüm Kategoriler
+        </a>
+            
+    </li>
+
+    
+    @foreach (var category in Model)
+    {
+        if (selectedCategory != null)
+        {
+            if (category.Id == int.Parse(selectedCategory.ToString()))
+            {
+                <li>
+                    <a href="/Home/List/@category.Id">
+                        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        @category.Name
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="/Home/List/@category.Id">
+                        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        @category.Name
+                    </a>
+                </li>
+
+            }
+        }
+        else
+        {
+            <li>
+                <a href="/Home/List/@category.Id">
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    @category.Name
+                </a>
+            </li>
+
+        }
+    }
+</ul>
+
+
+
